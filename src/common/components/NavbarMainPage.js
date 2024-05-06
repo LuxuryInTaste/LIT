@@ -171,7 +171,7 @@ const NavbarMainPage = () => {
         justifyContent:"space-between"
         }}>
            <Link marginTop={2}
-          href="https://project-2-seven-beta.vercel.app"
+          href="https://icy-bay-06e2d6e10.5.azurestaticapps.net"
           target="_blank"
           rel="noopener"
           fontFamily="CDGordon"

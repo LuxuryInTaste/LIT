@@ -23,6 +23,7 @@ import handbag from "../common/assets/handbag.png";
 import { useAuth } from "../common/context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useDb } from "../common/context/DbContext";
+import { useAzDb } from "../common/context/AzureDbContext";
 import { ScaleLoader } from "react-spinners";
 import ParticleComponent from "../common/components/ParticleComponent";
 import bg2 from "../common/assets/bg2.png";
@@ -78,12 +79,11 @@ const Home = () => {
   ];
 
   const { gameDataFetch } = useDb();
-
+  const { fetchGameData, gameData } = useAzDb();
   useEffect(() => {
     gameDataFetch();
+    fetchGameData();
   }, []);
-
-  // console.log(loading);
 
   return (
     <Box
@@ -161,9 +161,10 @@ const Home = () => {
                       image={item.image}
                       component="img"
                       alt={`Image ${item.id}`}
-                      height="100%"
-                      sx={{ objectFit: "cover" }}
+                      // height="100%"
+                      sx={{ objectFit: "cover", height: "100%" }}
                     />
+              
                   </Card>
                   <Typography
                     textAlign="center"

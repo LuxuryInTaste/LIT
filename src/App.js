@@ -15,9 +15,11 @@ import Ring from "./pages/Ring";
 import Shoes from "./pages/Shoes";
 import Watch from "./pages/Watch";
 import { DbProvider } from "./common/context/DbContext";
+import { AzDbProvider } from "./common/context/AzureDbContext";
 import MarketPlace from "./pages/MarketPlace";
 import MainHome from "./pages/MainHome";
 import Avatar from "./pages/Avatar";
+import GameProductsCart from "./pages/GameProductsCart";
 
 const theme = createTheme({
   typography: {
@@ -30,27 +32,29 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
         <AuthProvider>
-          <DbProvider>
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<MainHome />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/faq" element={<FAQ />} />
-                <Route path="/bags" element={<Bags />} />
-                <Route path="/clothes" element={<Clothes />} />
-                <Route path="/ring" element={<Ring />} />
-                <Route path="/shoes" element={<Shoes />} />
-                <Route path="/watch" element={<Watch />} />
-                <Route path="/marketplace" element={<MarketPlace />} />
-
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/avatar" element={<Avatar />} />
-              </Routes>
-            </BrowserRouter>
-          </DbProvider>
+          <AzDbProvider>
+            <DbProvider>
+              <BrowserRouter>
+                <Routes>
+                  <Route path="/" element={<MainHome />} />
+                  <Route path="/home" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/faq" element={<FAQ />} />
+                  <Route path="/bags" element={<Bags />} />
+                  <Route path="/clothes" element={<Clothes />} />
+                  <Route path="/ring" element={<Ring />} />
+                  <Route path="/shoes" element={<Shoes />} />
+                  <Route path="/watch" element={<Watch />} />
+                  <Route path="/marketplace" element={<MarketPlace />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/signup" element={<Signup />} />
+                  <Route path="/avatar" element={<Avatar />} />
+                  <Route path="/gameproductscart" element={<GameProductsCart />} />
+                </Routes>
+              </BrowserRouter>
+            </DbProvider>
+          </AzDbProvider>
         </AuthProvider>
       </ThemeProvider>
     </div>
